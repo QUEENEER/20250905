@@ -31,3 +31,38 @@ int main(void){
 	cout<<arr[m][n]<<endl;
 	return 0;
 }
+//change1
+#include <bits/stdc++.h>
+using namespace std;
+long long a,b,m,n,arr[50][50],brr[50][50];
+void pan(long long x,long long y){
+	brr[x][y]=1;
+	brr[x-1][y-2]=1;
+	brr[x+1][y-2]=1;
+	brr[x-1][y+2]=1;
+	brr[x+1][y+2]=1;
+	brr[x-2][y-1]=1;
+	brr[x+2][y-1]=1;
+	brr[x-2][y+1]=1;
+	brr[x+2][y+1]=1;
+}
+
+int main(void){
+	cin>>a>>b>>m>>n;
+	a++;
+	b++;
+	m++;
+	n++;
+	arr[1][1]=1;
+	pan(a,b);
+	for(int i=1;i<=m;i++){
+		for(int j=1;j<=n;j++){
+			if(i==1&&j==1)continue;
+			if(brr[i][j]==0){
+				arr[i][j]=arr[i-1][j]+arr[i][j-1];
+			}
+		}
+	}
+	cout<<arr[m][n]<<endl;
+	return 0;
+}
