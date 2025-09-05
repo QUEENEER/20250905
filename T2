@@ -45,3 +45,4 @@ int main(){
 	cout<<o<<endl;
 	return 0;
 }
+//100改成100000即可
