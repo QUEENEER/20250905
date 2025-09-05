@@ -21,3 +21,27 @@ int main(){
 	cout<<o<<endl;
 	return 0;
 }
+//change1
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int a,m,n;
+	cin>>a;
+	int arr[100],brr[100],crr[100],drr[100];
+	for(int i=1;i<=a;i++){
+		cin>>arr[i]>>brr[i]>>crr[i]>>drr[i];
+	}
+	cin>>m>>n;
+	int o=0;
+	for(int i=1;i<=a;i++){
+		if(m>=arr[i]&&m<=arr[i]+crr[i]&&n>=brr[i]&&n<=brr[i]+drr[i]){
+			o=i;
+		}
+	}
+	if(o==0){
+		o=-1;
+	}
+	cout<<o<<endl;
+	return 0;
+}
