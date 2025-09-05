@@ -11,7 +11,7 @@ int main(){
 	cin>>m>>n;
 	int o=0;
 	for(int i=1;i<=a;i++){
-		if(m>=arr[i]||m<=arr[i]+crr[i]||n>=brr[i]||n<=brr[i]+drr[i]){
+		if(m>=arr[i]&&m<=arr[i]+crr[i]&&n>=brr[i]&&n<=brr[i]+drr[i]){
 			o+=1;
 		}
 	}
