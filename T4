@@ -37,6 +37,7 @@ bool cmp(node m,node n){
 }
 int main(){
     cin>>a>>b>>c>>d>>e;
+	double left;
     s[0].p=d;
     for(int i=1;i<=e;i++){
         cin>>s[i].p;
