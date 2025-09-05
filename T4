@@ -25,3 +25,42 @@ int main(){
 }
 //sort不知道哪出错了,21行
 //原因是数组下标必须是整数
+#include <bits/stdc++.h>
+using namespace std;
+double a,b,c,d,cost,left;
+int e;
+struct node{
+    double p,q;
+}s[10];
+bool cmp(node m,node n){
+    return m.p<n.p;
+}
+int main(){
+    cin>>a>>b>>c>>d>>e;
+    s[0].p=d;
+    for(int i=1;i<=e;i++){
+        cin>>s[i].p;
+        cin>>s[i].q;
+        if(s[i].p-s[i-1].p>b*c){
+            cout<<"No Solution";
+            return 0;
+        }
+    }
+    sort(s+1,s+1+e,cmp);
+    for(int i=0;i<=e+1;){
+        int j,k;
+        for(int j=k=1+i;j<=e;j++){
+            k=s[j].q>s[k].q?j:k;
+            if(s[j].q<=s[i].q||s[j+1].p-s[i].p>b*c){
+                break;
+            }
+        }
+        if(s[j].q>s[i].q){
+            cost+=(b-left)*s[i].q,left=b-(s[k].p-s[i].p)/c;
+            i=k;
+        }
+        else cost+=s[i].q*((s[j].p-s[i].p)/c-left),i=j,left=0;
+    }
+    cout<<cost<<endl;
+    return 0;
+}
